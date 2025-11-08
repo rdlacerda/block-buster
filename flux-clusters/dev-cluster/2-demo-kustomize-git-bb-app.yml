@@ -12,3 +12,13 @@ spec:
     kind: GitRepository
     name: 2-demo-source-git-bb-app
   targetNamespace: 2-demo
+  patches:
+    - target:
+      kind: Deployment
+      name: block-buster
+      namespace: 1-demo
+      patch: |-
+        - op: relace
+          path: /spec/replicas
+          value: 3
+
